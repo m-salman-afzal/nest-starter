@@ -1,0 +1,97 @@
+{
+    "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+    "organizeImports": { "enabled": false },
+    "formatter": {
+        "enabled": true,
+        "formatWithErrors": true,
+        "attributePosition": "auto",
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 120,
+        "lineEnding": "lf",
+        "ignore": [
+            "./.idea",
+            "./.vscode",
+            "**/.env*",
+            "./build",
+            "./node_modules",
+            "./storage",
+            "./coverage",
+            "./.husky",
+            "./.circleci",
+            "./.github",
+            "**/README.md",
+            "**/.npmrc",
+            "**/*.crt",
+            "**/*.key",
+            "**/*.pem",
+            "**/.prettierignore",
+            "**/.eslintignore",
+            "**/.gitattributes",
+            "**/.dockerignore",
+            "**/*.png",
+            "./ops"
+        ]
+    },
+    "json": {
+        "formatter": {
+            "indentWidth": 4,
+            "indentStyle": "space",
+            "lineEnding": "lf",
+            "lineWidth": 120,
+            "trailingCommas": "none"
+        }
+    },
+    "javascript": {
+        "formatter": {
+            "enabled": true,
+            "arrowParentheses": "always",
+            "bracketSpacing": false,
+            "bracketSameLine": false,
+            "jsxQuoteStyle": "single",
+            "quoteProperties": "asNeeded",
+            "quoteStyle": "single",
+            "semicolons": "always",
+            "trailingCommas": "none"
+        },
+        "parser": {
+            "unsafeParameterDecoratorsEnabled": true
+        }
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "performance": {
+                "noBarrelFile": "error",
+                "noReExportAll": "error"
+            },
+            "complexity": {
+                "useSimplifiedLogicExpression": "error"
+            }
+        },
+        "ignore": [
+            "./.idea",
+            "./.vscode",
+            "**/.env*",
+            "./build",
+            "./node_modules",
+            "./storage",
+            "./coverage",
+            "./.husky",
+            "./.circleci",
+            "./.github",
+            "**/README.md",
+            "**/.npmrc",
+            "**/*.crt",
+            "**/*.key",
+            "**/*.pem",
+            "**/.prettierignore",
+            "**/.eslintignore",
+            "**/.gitattributes",
+            "**/.dockerignore",
+            "**/*.png",
+            "./ops"
+        ]
+    }
+}
