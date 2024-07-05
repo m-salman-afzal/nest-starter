@@ -22,29 +22,18 @@
         "typeRoots": ["./node_modules/@types"],
         "baseUrl": "./",
         "paths": {
-            // "@docs/*": ["docs/*"],
-            "@controllers/*": ["src/web/controllers/*"],
-            "@modules/*": ["src/web/modules/*"],
-            "@services/*": ["src/app/services/*"]
-            // "@middlewares/*": ["src/web/middlewares/*"],
-            // "@routes/*": ["http/Routes/*"],
-            // "@server/*": ["http/Server/*"],
-            // "@appUtils/*": ["src/Application/Utils/*"],
-            // "@entities/*": ["src/Domain/Entities/*"],
-            // "@valueObjects/*": ["src/Domain/ValueObjects/*"],
-            // "@validations/*": ["src/Domain/Validations/*"],
-            // "@infraConfig/*": ["src/Infrastructure/Config/*"],
-            // "@repositories/*": ["src/Infrastructure/MysqlRepository/*"],
-            // "@infraUtils/*": ["src/Infrastructure/Utils/*"],
-            // "@infraServices/*": ["src/Infrastructure/Services/*"],
-            // "@logger/*": ["src/Infrastructure/Logger/*"],
-            // "@infrastructure/*": ["src/Infrastructure/*"],
-            // "@domain/*": ["src/Domain/*"],
-            // "@application/*": ["src/Application/*"],
-            // "@typings/*": ["src/typings/*"],
-            // "@http/*": ["http/*"],
-            // "@src/*": ["src/*"],
-            // "@tests/*": ["tests/*"]
+            "@webModules/*": ["src/web/modules/*"],
+            "@webControllers/*": ["src/web/controllers/*"],
+            "@web/*": ["src/web/*"],
+            "@appServices/*": ["src/app/services/*"],
+            "@appModules/*": ["src/app/modules/*"],
+            "@app/*": ["src/app/*"],
+            "@domain/*": ["src/domain/*"],
+            "@infraModules/*": ["src/infra/modules/*"],
+            "@infraConfig/*": ["src/infra/config/*"],
+            "@infraDatabase/*": ["src/infra/database/*"],
+            "@infraUtils/*": ["src/infra/utils/*"],
+            "@infra/*": ["src/infra/*"]
         },
         "strict": true,
         "strictBindCallApply": true,
@@ -61,17 +50,13 @@
         "noImplicitReturns": true,
         "noPropertyAccessFromIndexSignature": true,
         "noUncheckedIndexedAccess": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
         "verbatimModuleSyntax": false,
         "checkJs": true,
         "noImplicitAny": false,
         "useUnknownInCatchVariables": true
     },
     "include": ["**/*"],
-    "exclude": ["node_modules", "dist", "coverage", "storage", "certificates", ".vscode"],
-    "ts-node": {
-        "files": true,
-        "require": ["tsconfig-paths/register"]
-    }
+    "exclude": ["node_modules", "dist", "coverage", "storage", "certificates", ".vscode", "drizzle.config.ts"]
 }

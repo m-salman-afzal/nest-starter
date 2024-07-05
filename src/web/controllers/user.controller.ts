@@ -1,7 +1,8 @@
-import {Controller, Get, Inject, forwardRef} from '@nestjs/common';
-import {UserService} from '@services/user.service';
+import {Controller, forwardRef, Get, Inject} from "@nestjs/common";
 
-@Controller('users')
+import {UserService} from "@appServices/user.service";
+
+@Controller("users")
 export class UserController {
     constructor(
         @Inject(forwardRef(() => UserService))
@@ -9,7 +10,7 @@ export class UserController {
     ) {}
 
     @Get()
-    fetchAll() {
-        return this.userService.fetchAll();
+    async fetchAll() {
+        return await this.userService.fetchAll();
     }
 }

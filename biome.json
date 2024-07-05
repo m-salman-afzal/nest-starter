@@ -1,6 +1,9 @@
 {
     "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
     "organizeImports": { "enabled": false },
+    "files": {
+        "include": ["**/*.ts", "./*.json"]
+    },
     "formatter": {
         "enabled": true,
         "formatWithErrors": true,
@@ -8,30 +11,7 @@
         "indentStyle": "space",
         "indentWidth": 4,
         "lineWidth": 120,
-        "lineEnding": "lf",
-        "ignore": [
-            "./.idea",
-            "./.vscode",
-            "**/.env*",
-            "./build",
-            "./node_modules",
-            "./storage",
-            "./coverage",
-            "./.husky",
-            "./.circleci",
-            "./.github",
-            "**/README.md",
-            "**/.npmrc",
-            "**/*.crt",
-            "**/*.key",
-            "**/*.pem",
-            "**/.prettierignore",
-            "**/.eslintignore",
-            "**/.gitattributes",
-            "**/.dockerignore",
-            "**/*.png",
-            "./ops"
-        ]
+        "lineEnding": "lf"
     },
     "json": {
         "formatter": {
@@ -48,9 +28,9 @@
             "arrowParentheses": "always",
             "bracketSpacing": false,
             "bracketSameLine": false,
-            "jsxQuoteStyle": "single",
+            "jsxQuoteStyle": "double",
             "quoteProperties": "asNeeded",
-            "quoteStyle": "single",
+            "quoteStyle": "double",
             "semicolons": "always",
             "trailingCommas": "none"
         },
@@ -63,35 +43,11 @@
         "rules": {
             "recommended": true,
             "performance": {
-                "noBarrelFile": "error",
                 "noReExportAll": "error"
             },
             "complexity": {
                 "useSimplifiedLogicExpression": "error"
             }
-        },
-        "ignore": [
-            "./.idea",
-            "./.vscode",
-            "**/.env*",
-            "./build",
-            "./node_modules",
-            "./storage",
-            "./coverage",
-            "./.husky",
-            "./.circleci",
-            "./.github",
-            "**/README.md",
-            "**/.npmrc",
-            "**/*.crt",
-            "**/*.key",
-            "**/*.pem",
-            "**/.prettierignore",
-            "**/.eslintignore",
-            "**/.gitattributes",
-            "**/.dockerignore",
-            "**/*.png",
-            "./ops"
-        ]
+        }
     }
 }
