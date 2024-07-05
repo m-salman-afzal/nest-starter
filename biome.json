@@ -1,8 +1,13 @@
 {
     "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
-    "organizeImports": { "enabled": false },
+    "organizeImports": {
+        "enabled": false
+    },
     "files": {
-        "include": ["**/*.ts", "./*.json"]
+        "include": [
+            "**/*.ts",
+            "./*.json"
+        ]
     },
     "formatter": {
         "enabled": true,
@@ -15,10 +20,11 @@
     },
     "json": {
         "formatter": {
+            "enabled": true,
             "indentWidth": 4,
             "indentStyle": "space",
             "lineEnding": "lf",
-            "lineWidth": 120,
+            "lineWidth": 20,
             "trailingCommas": "none"
         }
     },

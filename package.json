@@ -13,9 +13,12 @@
         "start:debug": "nest start --debug --watch",
         "start:prod": "node dist/main"
     },
-    "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
+    "packageManager": "pnpm@9.4.0",
     "lint-staged": {
-        "**/*": ["prettier --write", "biome check --no-errors-on-unmatched --files-ignore-unknown=true"]
+        "**/*": [
+            "prettier --write",
+            "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
+        ]
     },
     "dependencies": {
         "@nestjs/common": "10.3.10",
