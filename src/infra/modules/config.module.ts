@@ -1,7 +1,8 @@
 import {Module} from "@nestjs/common";
 import {ConfigModule} from "@nestjs/config";
 
-import {ENV_VARIABLES} from "@infraConfig/index";
+import {APP_CONFIG} from "@infraConfig/app.config";
+import {DATABASE_CONFIG} from "@infraConfig/database.config";
 
 @Module({
     imports: [
@@ -9,9 +10,7 @@ import {ENV_VARIABLES} from "@infraConfig/index";
             envFilePath: ".env",
             isGlobal: true,
             cache: true,
-            validate: (config) => {
-                return ENV_VARIABLES.parse(config);
-            }
+            load: [APP_CONFIG]
         })
     ]
 })

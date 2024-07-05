@@ -1,24 +1,20 @@
-import {ConfigService} from "@nestjs/config";
 import {drizzle} from "drizzle-orm/node-postgres";
 import {Client} from "pg";
 
-import {DATABASE_CONFIG_DEFAULTS} from "@infraConfig/database.config";
+import {DATABASE_CONFIG} from "@infraConfig/database.config";
 
 import {DI_TOKENS} from "@infraUtils/constants";
 
 import * as models from "./drizzle/models";
 
-import type {TDATABASE_CONFIG} from "@infraConfig/database.config";
-import type {TENV_VARIABLES} from "@infraConfig/index";
+import type {FactoryProvider} from "@nestjs/common";
 import type {ConfigType} from "@nestjs/config";
 
-export const databaseProviders = [
+export const databaseProviders: FactoryProvider[] = [
     {
         provide: DI_TOKENS.DRIZZLE_DATASOURCE,
-        inject: [ConfigService],
-        useFactory: async (configService: ConfigService<TENV_VARIABLES>) => {
-            const dbConfig = configService.get("DATABASE", DATABASE_CONFIG_DEFAULTS, {infer: true});
-
+        inject: [DATABASE_CONFIG.KEY],
+        useFactory: async (dbConfig: ConfigType<typeof DATABASE_CONFIG>) => {
             const dataSource = new Client({
                 host: dbConfig.DB_HOST,
                 port: dbConfig.DB_PORT,
