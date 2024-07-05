@@ -55,6 +55,11 @@
                 "useSimplifiedLogicExpression": "error",
                 "noStaticOnlyClass": "off"
             },
+            "correctness": {
+                "noUnusedImports": "warn",
+                "noUnusedVariables": "warn",
+                "noUnusedPrivateClassMembers": "warn"
+            },
             "style": {
                 "useImportType": "off"
             }

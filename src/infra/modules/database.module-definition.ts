@@ -1,14 +1,10 @@
 import {ConfigurableModuleBuilder} from "@nestjs/common";
 
-interface TDatabaseModuleOptions {
-    host: string;
-    port: number;
-    user: string;
-    password: string;
-    database: string;
-}
+import type {TDATABASE_CONFIG} from "@infraConfig/database.config";
+
+export interface DatabaseModuleOptions extends TDATABASE_CONFIG {}
 
 export const {
     ConfigurableModuleClass: ConfigurableDatabaseModuleClass,
     MODULE_OPTIONS_TOKEN: DATABASE_MODULE_OPTIONS_TOKEN
-} = new ConfigurableModuleBuilder<TDatabaseModuleOptions>().setClassMethodName("forRoot").build();
+} = new ConfigurableModuleBuilder<DatabaseModuleOptions>().setClassMethodName("forRoot").build();
