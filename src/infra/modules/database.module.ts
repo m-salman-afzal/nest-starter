@@ -1,13 +1,30 @@
-import {Module} from "@nestjs/common";
-import {ConfigModule} from "@nestjs/config";
+import {Global, Module} from "@nestjs/common";
+import {Client} from "pg";
 
-import {DATABASE_CONFIG} from "@infraConfig/database.config";
+import {DatabaseService} from "@infraDatabase/database.service";
 
-import {databaseProviders} from "@infraDatabase/database.providers";
+import {DI_TOKENS} from "@infraUtils/constants";
 
+import {ConfigurableDatabaseModuleClass, DATABASE_MODULE_OPTIONS_TOKEN} from "./database.module-definition";
+
+@Global()
 @Module({
-    imports: [ConfigModule.forFeature(DATABASE_CONFIG)],
-    providers: [...databaseProviders],
-    exports: [...databaseProviders]
+    providers: [
+        DatabaseService,
+        {
+            provide: DI_TOKENS.DATABASE_CLIENT,
+            inject: [DATABASE_MODULE_OPTIONS_TOKEN],
+            useFactory: (dbConfig) => {
+                return new Client({
+                    host: dbConfig.DB_HOST,
+                    port: dbConfig.DB_PORT,
+                    user: dbConfig.DB_USERNAME,
+                    password: dbConfig.DB_PASSWORD,
+                    database: dbConfig.DB_NAME
+                });
+            }
+        }
+    ],
+    exports: [DatabaseService]
 })
-export class DatabaseModule {}
+export class DatabaseModule extends ConfigurableDatabaseModuleClass {}

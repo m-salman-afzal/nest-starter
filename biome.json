@@ -52,7 +52,11 @@
                 "noReExportAll": "error"
             },
             "complexity": {
-                "useSimplifiedLogicExpression": "error"
+                "useSimplifiedLogicExpression": "error",
+                "noStaticOnlyClass": "off"
+            },
+            "style": {
+                "useImportType": "off"
             }
         }
     }

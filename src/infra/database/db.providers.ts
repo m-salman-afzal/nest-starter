@@ -10,7 +10,7 @@ import * as models from "./drizzle/models";
 import type {FactoryProvider} from "@nestjs/common";
 import type {ConfigType} from "@nestjs/config";
 
-export const databaseProviders: FactoryProvider[] = [
+export const dbProviders: FactoryProvider[] = [
     {
         provide: DI_TOKENS.DRIZZLE_DATASOURCE,
         inject: [DATABASE_CONFIG.KEY],

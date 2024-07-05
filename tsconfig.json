@@ -3,7 +3,9 @@
         "target": "ESNext",
         "module": "NodeNext",
         "moduleResolution": "NodeNext",
-        "lib": ["ESNext"],
+        "lib": [
+            "ESNext"
+        ],
         "outDir": "./dist",
         "incremental": true,
         "declaration": true,
@@ -19,21 +21,47 @@
         "resolveJsonModule": true,
         "pretty": true,
         "traceResolution": false,
-        "typeRoots": ["./node_modules/@types"],
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
         "baseUrl": "./",
         "paths": {
-            "@webModules/*": ["src/web/modules/*"],
-            "@webControllers/*": ["src/web/controllers/*"],
-            "@web/*": ["src/web/*"],
-            "@appServices/*": ["src/app/services/*"],
-            "@appModules/*": ["src/app/modules/*"],
-            "@app/*": ["src/app/*"],
-            "@domain/*": ["src/domain/*"],
-            "@infraModules/*": ["src/infra/modules/*"],
-            "@infraConfig/*": ["src/infra/config/*"],
-            "@infraDatabase/*": ["src/infra/database/*"],
-            "@infraUtils/*": ["src/infra/utils/*"],
-            "@infra/*": ["src/infra/*"]
+            "@webModules/*": [
+                "src/web/modules/*"
+            ],
+            "@webControllers/*": [
+                "src/web/controllers/*"
+            ],
+            "@web/*": [
+                "src/web/*"
+            ],
+            "@appServices/*": [
+                "src/app/services/*"
+            ],
+            "@appModules/*": [
+                "src/app/modules/*"
+            ],
+            "@app/*": [
+                "src/app/*"
+            ],
+            "@domain/*": [
+                "src/domain/*"
+            ],
+            "@infraModules/*": [
+                "src/infra/modules/*"
+            ],
+            "@infraConfig/*": [
+                "src/infra/config/*"
+            ],
+            "@infraDatabase/*": [
+                "src/infra/database/*"
+            ],
+            "@infraUtils/*": [
+                "src/infra/utils/*"
+            ],
+            "@infra/*": [
+                "src/infra/*"
+            ]
         },
         "strict": true,
         "strictBindCallApply": true,
@@ -57,6 +85,16 @@
         "noImplicitAny": false,
         "useUnknownInCatchVariables": true
     },
-    "include": ["**/*"],
-    "exclude": ["node_modules", "dist", "coverage", "storage", "certificates", ".vscode", "drizzle.config.ts"]
+    "include": [
+        "**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "coverage",
+        "storage",
+        "certificates",
+        ".vscode",
+        "drizzle.config.ts"
+    ]
 }
