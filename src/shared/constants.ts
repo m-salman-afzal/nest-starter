@@ -1,0 +1,3 @@
+export const DI_TOKENS = {
+    DATABASE_SERVICE: "DATABASE_SERVICE"
+};

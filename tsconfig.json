@@ -56,11 +56,11 @@
             "@infraDatabase/*": [
                 "src/infra/database/*"
             ],
-            "@infraUtils/*": [
-                "src/infra/utils/*"
-            ],
             "@infra/*": [
                 "src/infra/*"
+            ],
+            "@shared/*": [
+                "src/shared/*"
             ]
         },
         "strict": true,

@@ -17,6 +17,7 @@ export class DatabaseService {
 
     constructor(@Inject(DATABASE_MODULE_OPTIONS_TOKEN) connectionOptions: DatabaseModuleOptions) {
         this.connectionOptions = connectionOptions;
+
         this.db = drizzle(this.createClient(), {schema: models, logger: this.connectionOptions.DB_LOG});
     }
 
@@ -40,11 +41,11 @@ export class DatabaseService {
         });
     }
 
-    // async connect() {
-    //     await this.createClient().connect();
-    // }
+    async connect() {
+        await this.createClient().connect();
+    }
 
-    // async disconnect() {
-    //     await this.createClient().end();
-    // }
+    async disconnect() {
+        await this.createClient().end();
+    }
 }
