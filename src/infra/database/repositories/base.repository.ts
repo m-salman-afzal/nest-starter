@@ -1,29 +1,20 @@
-import "@nestjs/common";
-import "@nestjs/common";
-import "@nestjs/common";
-
-import {forwardRef, Inject} from "@nestjs/common";
-import {NodePgDatabase} from "drizzle-orm/node-postgres";
+import {TColumn, TDatabaseSource, TModel, TSelectColumn} from "@shared/types/database.type";
 
 import {DatabaseService} from "@infraDatabase/database.service";
 
-import type * as models from "@infraDatabase/drizzle/models";
-import type {users} from "@infraDatabase/drizzle/models/user.model";
+export class BaseRepository<Model extends TModel, Column extends TColumn> {
+    private db: TDatabaseSource;
+    private readonly model: Model;
 
-export class BaseRepository {
-    private db!: NodePgDatabase<typeof models>;
-    private readonly model: typeof users;
-
-    @Inject(forwardRef(() => DatabaseService))
-    private readonly databaseService!: DatabaseService;
-
-    constructor(model: typeof users) {
-        this.db = this.databaseService.getDatabase();
+    constructor(
+        readonly databaseService: DatabaseService,
+        model: Model
+    ) {
+        this.db = databaseService.getDatabase();
         this.model = model;
     }
 
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    async fetchAll(props: {selectColumns: any; where: any}) {
-        return await this.db.select(props.selectColumns).from(this.model).where(props.where);
+    async fetchAll(props: {selectColumns: TSelectColumn<Model, Column>}) {
+        return await this.db.select(props.selectColumns).from(this.model);
     }
 }

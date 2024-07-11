@@ -13,7 +13,7 @@
         "start:debug": "nest start --debug --watch",
         "start:prod": "node --env-file=.env dist/src/main"
     },
-    "packageManager": "pnpm@9.4.0",
+    "packageManager": "pnpm@9.5.0",
     "lint-staged": {
         "**/*": [
             "prettier --write",
