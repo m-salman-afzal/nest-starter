@@ -44,6 +44,9 @@
             "@app/*": [
                 "src/app/*"
             ],
+            "@entities/*": [
+                "src/domain/entities/*"
+            ],
             "@domain/*": [
                 "src/domain/*"
             ],
@@ -94,7 +97,6 @@
         "coverage",
         "storage",
         "certificates",
-        ".vscode",
-        "drizzle.config.ts"
+        ".vscode"
     ]
 }

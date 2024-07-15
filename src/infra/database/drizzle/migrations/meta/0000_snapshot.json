@@ -1,9 +1,83 @@
 {
-    "id": "75d67953-71f2-406a-bd2c-908ecaa63827",
+    "id": "fb90280c-55cb-427c-b664-1e2677d8b966",
     "prevId": "00000000-0000-0000-0000-000000000000",
     "version": "7",
     "dialect": "postgresql",
     "tables": {
+        "public.tasks": {
+            "name": "tasks",
+            "schema": "",
+            "columns": {
+                "id": {
+                    "name": "id",
+                    "type": "serial",
+                    "primaryKey": true,
+                    "notNull": true
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "type": "timestamp",
+                    "primaryKey": false,
+                    "notNull": false
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "type": "timestamp",
+                    "primaryKey": false,
+                    "notNull": false
+                },
+                "deletedAt": {
+                    "name": "deletedAt",
+                    "type": "timestamp",
+                    "primaryKey": false,
+                    "notNull": false
+                },
+                "taskId": {
+                    "name": "taskId",
+                    "type": "varchar(256)",
+                    "primaryKey": false,
+                    "notNull": false
+                },
+                "name": {
+                    "name": "name",
+                    "type": "varchar(256)",
+                    "primaryKey": false,
+                    "notNull": false
+                },
+                "userId": {
+                    "name": "userId",
+                    "type": "varchar(256)",
+                    "primaryKey": false,
+                    "notNull": false
+                }
+            },
+            "indexes": {},
+            "foreignKeys": {
+                "tasks_userId_users_userId_fk": {
+                    "name": "tasks_userId_users_userId_fk",
+                    "tableFrom": "tasks",
+                    "tableTo": "users",
+                    "columnsFrom": [
+                        "userId"
+                    ],
+                    "columnsTo": [
+                        "userId"
+                    ],
+                    "onDelete": "set null",
+                    "onUpdate": "cascade"
+                }
+            },
+            "compositePrimaryKeys": {},
+            "uniqueConstraints": {
+                "tasks_taskId_idx": {
+                    "name": "tasks_taskId_idx",
+                    "nullsNotDistinct": false,
+                    "columns": [
+                        "taskId"
+                    ]
+                }
+            }
+        },
         "public.users": {
             "name": "users",
             "schema": "",
@@ -14,33 +88,68 @@
                     "primaryKey": true,
                     "notNull": true
                 },
+                "createdAt": {
+                    "name": "createdAt",
+                    "type": "timestamp",
+                    "primaryKey": false,
+                    "notNull": false
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "type": "timestamp",
+                    "primaryKey": false,
+                    "notNull": false
+                },
+                "deletedAt": {
+                    "name": "deletedAt",
+                    "type": "timestamp",
+                    "primaryKey": false,
+                    "notNull": false
+                },
+                "userId": {
+                    "name": "userId",
+                    "type": "varchar(256)",
+                    "primaryKey": false,
+                    "notNull": false
+                },
                 "name": {
                     "name": "name",
                     "type": "varchar(256)",
                     "primaryKey": false,
                     "notNull": false
+                },
+                "email": {
+                    "name": "email",
+                    "type": "varchar(256)",
+                    "primaryKey": false,
+                    "notNull": false
+                },
+                "password": {
+                    "name": "password",
+                    "type": "varchar(256)",
+                    "primaryKey": false,
+                    "notNull": false
                 }
             },
-            "indexes": {
-                "name_idx": {
-                    "name": "name_idx",
-                    "columns": [
-                        {
-                            "expression": "name",
-                            "isExpression": false,
-                            "asc": true,
-                            "nulls": "last"
-                        }
-                    ],
-                    "isUnique": true,
-                    "concurrently": false,
-                    "method": "btree",
-                    "with": {}
-                }
-            },
+            "indexes": {},
             "foreignKeys": {},
             "compositePrimaryKeys": {},
-            "uniqueConstraints": {}
+            "uniqueConstraints": {
+                "users_userId_idx": {
+                    "name": "users_userId_idx",
+                    "nullsNotDistinct": false,
+                    "columns": [
+                        "userId"
+                    ]
+                },
+                "users_email_idx": {
+                    "name": "users_email_idx",
+                    "nullsNotDistinct": false,
+                    "columns": [
+                        "email"
+                    ]
+                }
+            }
         }
     },
     "enums": {},

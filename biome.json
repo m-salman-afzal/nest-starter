@@ -53,7 +53,8 @@
             },
             "complexity": {
                 "useSimplifiedLogicExpression": "error",
-                "noStaticOnlyClass": "off"
+                "noStaticOnlyClass": "off",
+                "useOptionalChain": "off"
             },
             "correctness": {
                 "noUnusedImports": "warn",

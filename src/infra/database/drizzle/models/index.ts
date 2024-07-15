@@ -1,1 +1,3 @@
-export {users} from "./user.model";
+export {userModel, userRelations} from "./user.model";
+
+export {taskModel, taskRelations} from "./task.model";

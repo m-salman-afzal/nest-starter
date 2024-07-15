@@ -21,12 +21,8 @@ export class DatabaseService {
         this.db = drizzle(this.createClient(), {schema: models, logger: this.connectionOptions.DB_LOG});
     }
 
-    getConnectionOptions() {
+    private getConnectionOptions() {
         return this.connectionOptions;
-    }
-
-    getDatabase() {
-        return this.db;
     }
 
     private createClient() {
@@ -39,6 +35,10 @@ export class DatabaseService {
             password: dbConfig.DB_PASSWORD,
             database: dbConfig.DB_NAME
         });
+    }
+
+    getDatabase() {
+        return this.db;
     }
 
     async connect() {

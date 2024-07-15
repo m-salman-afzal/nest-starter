@@ -1,4 +1,4 @@
-import {SelectedFields} from "drizzle-orm";
+import {SelectedFields, SQL} from "drizzle-orm";
 import {NodePgDatabase} from "drizzle-orm/node-postgres";
 import {PgColumn, PgTable} from "drizzle-orm/pg-core";
 
@@ -17,3 +17,5 @@ export type TSelectColumn<Model extends TModel, Column extends TColumn> = Select
 export type TModelColumn<Model extends TModel> = TValueOf<{
     [K in keyof Model["_"]["columns"]]: Model["_"]["columns"][K];
 }>;
+
+export type TWhereFilter = SQL | undefined;
