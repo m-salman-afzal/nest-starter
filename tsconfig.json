@@ -35,11 +35,11 @@
             "@web/*": [
                 "src/web/*"
             ],
-            "@appServices/*": [
-                "src/app/services/*"
-            ],
             "@appModules/*": [
                 "src/app/modules/*"
+            ],
+            "@appServices/*": [
+                "src/app/services/*"
             ],
             "@app/*": [
                 "src/app/*"
